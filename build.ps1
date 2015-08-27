@@ -59,6 +59,20 @@ $components = @{
 			}
 		}
 	};
+	'NRules.Integration.Ninject' = @{
+		name = 'NRules.Integration.Ninject'
+		src_root = 'src/NRules.Integration'
+		bin = @{
+			out_include = @('*.dll','*.pdb','*.xml')
+			out_exclude = @('**Tests**','nunit**','Moq**')
+		}
+		package = @{
+			nuget = @{
+				id = 'NRules.Integration.Ninject'
+				include = @('NRules.Integration.Ninject.*')
+			}
+		}
+	};
 	'NRules.Integration' = @{
 		name = 'NRules.Integration'
 		nobuild = $true
