@@ -1,5 +1,6 @@
 ﻿using System;
 using Ninject;
+using Ninject.Syntax;
 
 namespace NRules.Integration.Ninject
 {
@@ -8,16 +9,16 @@ namespace NRules.Integration.Ninject
     /// </summary>
     public class NinjectDependencyResolver : IDependencyResolver
     {
-        private readonly IKernel _kernel;
+        private readonly IResolutionRoot _resolutionRoot;
 
-        public NinjectDependencyResolver(IKernel kernel)
+        public NinjectDependencyResolver(IResolutionRoot resolutionRoot)
         {
-            _kernel = kernel;
+            _resolutionRoot = resolutionRoot;
         }
 
         public object Resolve(IResolutionContext context, Type serviceType)
         {
-            return _kernel.Get(serviceType);
+            return _resolutionRoot.Get(serviceType);
         }
     }
 }

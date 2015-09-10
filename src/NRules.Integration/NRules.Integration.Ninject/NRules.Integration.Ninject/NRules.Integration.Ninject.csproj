@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="NinjectDependencyResolver.cs" />
     <Compile Include="NinjectRuleActivator.cs" />
+    <Compile Include="NRulesNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

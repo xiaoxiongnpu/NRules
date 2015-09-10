@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ninject;
+using Ninject.Syntax;
 using NRules.Fluent;
 using NRules.Fluent.Dsl;
 
@@ -11,16 +12,16 @@ namespace NRules.Integration.Ninject
     /// </summary>
     public class NinjectRuleActivator : IRuleActivator
     {
-        private readonly IKernel _kernel;
+        private readonly IResolutionRoot _resolutionRoot;
 
-        public NinjectRuleActivator(IKernel kernel)
+        public NinjectRuleActivator(IResolutionRoot resolutionRoot)
         {
-            _kernel = kernel;
+            _resolutionRoot = resolutionRoot;
         }
 
         public IEnumerable<Rule> Activate(Type type)
         {
-            var rules = _kernel.GetAll(type);
+            var rules = _resolutionRoot.GetAll(type);
             bool resolved = false;
             foreach (Rule rule in rules)
             {
